@@ -1,0 +1,23 @@
+{
+  "presets": ["@nrwl/web/babel"],
+  "assumptions": {
+    "setPublicClassFields": true
+  },
+  "plugins": [
+    [
+      "@babel/plugin-transform-typescript",
+      {
+        "allowDeclareFields": true
+      }
+    ],
+    [
+      "@babel/plugin-proposal-decorators",
+      {
+        "version": "2018-09",
+        "decoratorsBeforeExport": true
+      }
+    ],
+    ,
+    ["@babel/plugin-proposal-class-properties"]
+  ]
+}
