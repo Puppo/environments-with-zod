@@ -1,3 +1,5 @@
+import env from '../environment';
+
 import { z } from 'zod';
 
 const GitHubUser = z.object({
@@ -24,12 +26,10 @@ export function searchUsers(
     abortController?: AbortController;
   }
 ): Promise<GitHubUser[]> {
-  const url = new URL(`${import.meta.env.VITE_GITHUB_API_URL}/search/users`);
+  const { VITE_GITHUB_API_URL, VITE_GITHUB_PER_PAGE } = env;
+  const url = new URL(`${VITE_GITHUB_API_URL}/search/users`);
   url.searchParams.set('q', query);
-  url.searchParams.set(
-    'per_page',
-    import.meta.env.VITE_GITHUB_PER_PAGE.toString()
-  );
+  url.searchParams.set('per_page', VITE_GITHUB_PER_PAGE.toString());
   return fetch(url.toString(), {
     signal: opts?.abortController?.signal,
   })

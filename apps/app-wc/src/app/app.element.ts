@@ -2,6 +2,9 @@ import { html, LitElement } from 'lit';
 import { customElement, state } from 'lit/decorators.js';
 import { repeat } from 'lit/directives/repeat.js';
 import { GitHubUser, searchUsers } from './api/github-users.service';
+
+import './environment';
+
 import './app.element.scss';
 import './components/github-user.element';
 

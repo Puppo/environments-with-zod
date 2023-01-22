@@ -1,7 +1,7 @@
 # Environments With Zod
 
 This is the code of my Video on Youtube about how to validate environment variables with Zod.
-Here is the code to start the episode and code with me.
+Here is the code with the solution.
 
 ## Installation
 
