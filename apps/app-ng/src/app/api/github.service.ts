@@ -1,21 +1,22 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import {
   GitHubUser,
   GitHubUserSearchResponse,
 } from '@environments-with-zod/api/github';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import env from '../environments';
+import { ENVIRONMENT } from '../environments/provider';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GitHubService {
-  constructor(private readonly http: HttpClient) {}
+  private readonly env = inject(ENVIRONMENT);
+  private readonly http = inject(HttpClient);
 
   getUser(username: string): Observable<GitHubUser[]> {
-    const { NX_GITHUB_API_URL, NX_GITHUB_PER_PAGE } = env;
+    const { NX_GITHUB_API_URL, NX_GITHUB_PER_PAGE } = this.env;
     const url = new URL(`${NX_GITHUB_API_URL}/search/users`);
     url.searchParams.set('q', username);
     url.searchParams.set('per_page', NX_GITHUB_PER_PAGE.toString());

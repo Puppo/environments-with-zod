@@ -3,10 +3,10 @@ import { enableProdMode, importProvidersFrom } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { AppComponent } from './app/app.component';
 
-import env from './app/environments';
+import { registerEnvironment } from './app/environments/provider';
 
-if (env.NODE_ENV === 'production') enableProdMode();
+if (registerEnvironment.useValue.NODE_ENV === 'production') enableProdMode();
 
 bootstrapApplication(AppComponent, {
-  providers: [importProvidersFrom(HttpClientModule)],
+  providers: [importProvidersFrom(HttpClientModule), registerEnvironment],
 }).catch((err) => console.error(err));

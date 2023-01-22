@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { GitHubUser } from '@environments-with-zod/api/github';
 import { Subject } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
@@ -14,14 +14,14 @@ import { GitHubUserComponent } from './components/github-user.component';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  private readonly githubService = inject(GitHubService);
+
   private readonly query = new Subject<string>();
   private readonly query$ = this.query.asObservable();
 
   readonly users$ = this.query$.pipe(
     switchMap((query) => this.githubService.getUser(query))
   );
-
-  constructor(private readonly githubService: GitHubService) {}
 
   onQueryType(event: Event) {
     const target = event.target as HTMLInputElement;

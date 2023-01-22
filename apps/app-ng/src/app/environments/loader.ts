@@ -12,7 +12,6 @@ const options: ErrorMessageOptions = {
 
 function ensureEnvironments(): Environments {
   try {
-    console.log('process.env', process.env);
     const environments = Environments.parse(process.env);
     return environments;
   } catch (error) {
