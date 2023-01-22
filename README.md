@@ -1,7 +1,6 @@
 # Environments With Zod
 
-This is the code of my Video on Youtube about how to validate environment variables with Zod.
-Here is the code with the solution.
+This is the code of my Video on Youtube about how to validate environment variables with Zod (React Application).
 
 ## Installation
 
@@ -12,5 +11,5 @@ npm install
 ## Start App
 
 ```
-npm run start app-wc
+npm run start app-react
 ```

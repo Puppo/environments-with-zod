@@ -14,7 +14,9 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@environments-with-zod/api/github": ["libs/api/github/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
