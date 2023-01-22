@@ -1,0 +1,33 @@
+<div class="wrapper">
+  <div class="container">
+    <div id="welcome">
+      <h1>
+        <span> Hello there, </span>
+        Welcome to validate env with zod 👋
+      </h1>
+    </div>
+
+    <div id="content">
+      <div id="search">
+        <form>
+          <label htmlFor="search">Search for a user: </label>
+          <input
+            id="search"
+            type="text"
+            placeholder="Search for a user"
+            (input)="onQueryType($event)"
+          />
+        </form>
+      </div>
+
+      <div id="users">
+        <github-user
+          *ngFor="let user of users$ | async; trackBy: trackByFn"
+          [userId]="user.id"
+          [name]="user.login"
+          [image]="user.avatar_url"
+        />
+      </div>
+    </div>
+  </div>
+</div>

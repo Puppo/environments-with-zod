@@ -7,9 +7,7 @@
   "targets": {
     "build": {
       "executor": "@nrwl/vite:build",
-      "outputs": [
-        "{options.outputPath}"
-      ],
+      "outputs": ["{options.outputPath}"],
       "defaultConfiguration": "production",
       "options": {
         "outputPath": "dist/apps/app-wc"
@@ -42,9 +40,7 @@
     },
     "test": {
       "executor": "@nrwl/vite:test",
-      "outputs": [
-        "coverage/apps/app-wc"
-      ],
+      "outputs": ["coverage/apps/app-wc"],
       "options": {
         "passWithNoTests": true,
         "reportsDirectory": "../../coverage/apps/app-wc"
@@ -52,13 +48,9 @@
     },
     "lint": {
       "executor": "@nrwl/linter:eslint",
-      "outputs": [
-        "{options.outputFile}"
-      ],
+      "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": [
-          "apps/app-wc/**/*.ts"
-        ]
+        "lintFilePatterns": ["apps/app-wc/**/*.ts"]
       }
     }
   }
