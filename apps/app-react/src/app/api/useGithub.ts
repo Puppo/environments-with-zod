@@ -2,7 +2,7 @@ import {
   GitHubUser,
   GitHubUserSearchResponse,
 } from '@environments-with-zod/api/github';
-import { useEnv } from '../environments';
+import env from '../environments';
 
 interface GitHubService {
   searchUsers(
@@ -14,8 +14,6 @@ interface GitHubService {
 }
 
 export function useGithub(): GitHubService {
-  const env = useEnv();
-
   function searchUsers(
     query: string,
     opts?: {

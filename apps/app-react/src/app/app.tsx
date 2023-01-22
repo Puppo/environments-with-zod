@@ -1,13 +1,10 @@
-
-import { EnvironmentProvider } from './environments';
-
 import Home from './page/home';
+
+import './environments';
 
 export function App() {
   return (
-    <EnvironmentProvider>
-      <Home />
-    </EnvironmentProvider>
+    <Home />
   );
 }
 
